@@ -47,7 +47,7 @@
                         <div class="user-profile pull-right">
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Admin <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>/Admin/logout">Log Out</a>
                             </div>
                         </div>
                     </div>

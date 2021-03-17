@@ -24,11 +24,19 @@ class Cart_model extends CI_Model {
         }
 
         public function getCartProducts($ids) {
-                $this->db->select('*');
-                $this->db->from('product');
-                $this->db->where_in('id', $ids);
-                $query = $this->db->get();
-                return $query->result();
+            $this->db->select('*');
+            $this->db->from('product');
+            $this->db->where_in('id', $ids);
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function getCartByOrderId($orders_id) {
+            $this->db->select('*');
+            $this->db->from('cart');
+            $this->db->where('orders_id', $orders_id);
+            $query = $this->db->get();
+            return $query->result();
         }
 
 }

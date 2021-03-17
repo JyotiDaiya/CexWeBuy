@@ -4,23 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Product extends CI_Controller {
 
 	/**
+	 * Controller for this controller.
+	 * 
+	 */
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('Product_model');
+		if(!($this->session->userdata('admin'))) {
+			redirect('Admin');
+		}
+	}
+
+	/**
 	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * 
 	 */
 	public function index()
 	{
-		$this->load->model('Product_model');
 		$data = $this->Product_model->getProducts();
 		$this->load->view('Product/list', array('list'=>$data));
 	}
@@ -36,7 +36,6 @@ class Product extends CI_Controller {
 
 	public function submit()
 	{
-		$this->load->model('Product_model');
 		$this->Product_model->insertProduct($this->input->post());
 		redirect('/Product');
 	}

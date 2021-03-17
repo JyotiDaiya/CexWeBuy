@@ -78,6 +78,7 @@
                                                         <td>Order ID</td>
                                                         <td>User ID</td>
                                                         <td>Date</td>
+                                                        <td>Action</td>
                                                     </tr>
                                                     <?php
                                                         foreach ($list as $order) {
@@ -86,6 +87,7 @@
                                                                 <td><?php echo $order->id; ?></td>
                                                                 <td><?php echo $order->userid; ?></td>
                                                                 <td><?php echo $order->date; ?></td>
+                                                                <td><a href="<?php echo base_url() . "Order/details/" . $order->id; ?>">Details</a></td>
                                                             </tr>
                                                             <?php
                                                         } 
@@ -97,6 +99,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                     <!-- trading history area end -->
